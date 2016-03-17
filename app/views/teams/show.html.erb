@@ -1,0 +1,81 @@
+<div class="row">
+<div class="small-12 columns">
+    <p id="notice"><%= notice %></p>
+</div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1><%= @team.city %> <%= @team.name %></h1>
+        <h5><%= link_to @team.division.name, @team.division %></h5>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Year</th>
+                    <th>Away team</th>
+                    <th>Home team</th>
+                    <th>Away line</th>
+                    <th>Home line</th>
+                    <th>Away score</th>
+                    <th>Home score</th>
+                    <th>Away ats result</th>
+                    <th>Home ats result</th>
+                    <th>Over Under</th>
+                    <th>Over Under Result</th>
+                    <% @stats.each do |stat| %>
+                        <th><%= @team.name %> <%= stat.name %></th> 
+                        <th>Other Team <%= stat.name %></th>
+                        <th><%= stat.name %> Diff</th>
+                        <th>Score Diff</th>
+                    <% end %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @stats.each do |stat| %>
+                    <% @games.each do |game| %>
+                        <% if @good_bets[game.id] %>
+                            <tr style="background-color:<%= @good_bets[game.id] %>">
+                        <% else %>
+                            <tr>
+                        <% end %>
+                                <td><%= game.week %></td>
+                                <td><%= game.year %></td>
+                                <td><%=link_to  game.away_team, Team.where(short_name: game.away_team).first %></td>
+                                <td><%=link_to game.home_team, Team.where(short_name: game.home_team).first %></td>
+                                <td><%= game.away_line %></td>
+                                <td><%= game.home_line %></td>
+                                <td><%= game.away_score %></td>
+                                <td><%= game.home_score %></td>
+                                <td><%= game.away_ats_result %></td>
+                                <td><%= game.home_ats_result %></td>
+                                <td><%= game.over_under %></td>
+                                <td><%= game.over_under_result %></td>
+                                <% @stat_entries[stat.id].each do |stat_entry| %>
+                                    <% if stat_entry and stat_entry[game.id] %>
+                                        <td><%= stat_entry[game.id][:team_rating] %></td>
+                                        <td><%= stat_entry[game.id][:other_team_rating] %></td>
+                                        <td><%= stat_entry[game.id][:rating_diff] %></td>
+                                        <td><%= stat_entry[game.id][:score_diff] %></td>
+                                    <% end %>
+                                <% end %>
+                                </tr>
+                            <% end %>
+                        <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <%= link_to 'Edit', edit_team_path(@team) %> |
+        <%= link_to 'Back', teams_path %>
+    </div>
+</div>

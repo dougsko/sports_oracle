@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nfl player:</strong>
+  <%= @stat_line.nfl_player_id %>
+</p>
+
+<p>
+  <strong>Week:</strong>
+  <%= @stat_line.week %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @stat_line.year %>
+</p>
+
+<p>
+  <strong>Rush atts:</strong>
+  <%= @stat_line.rush_atts %>
+</p>
+
+<p>
+  <strong>Rush yards:</strong>
+  <%= @stat_line.rush_yards %>
+</p>
+
+<p>
+  <strong>Rush tds:</strong>
+  <%= @stat_line.rush_tds %>
+</p>
+
+<p>
+  <strong>Fumbles:</strong>
+  <%= @stat_line.fumbles %>
+</p>
+
+<p>
+  <strong>Pass comp:</strong>
+  <%= @stat_line.pass_comp %>
+</p>
+
+<p>
+  <strong>Pass att:</strong>
+  <%= @stat_line.pass_att %>
+</p>
+
+<p>
+  <strong>Pass yards:</strong>
+  <%= @stat_line.pass_yards %>
+</p>
+
+<p>
+  <strong>Pass tds:</strong>
+  <%= @stat_line.pass_tds %>
+</p>
+
+<p>
+  <strong>Ints:</strong>
+  <%= @stat_line.ints %>
+</p>
+
+<p>
+  <strong>Qb rating:</strong>
+  <%= @stat_line.qb_rating %>
+</p>
+
+<p>
+  <strong>Receptions:</strong>
+  <%= @stat_line.receptions %>
+</p>
+
+<p>
+  <strong>Rec yards:</strong>
+  <%= @stat_line.rec_yards %>
+</p>
+
+<p>
+  <strong>Rec tds:</strong>
+  <%= @stat_line.rec_tds %>
+</p>
+
+<%= link_to 'Edit', edit_stat_line_path(@stat_line) %> |
+<%= link_to 'Back', stat_lines_path %>

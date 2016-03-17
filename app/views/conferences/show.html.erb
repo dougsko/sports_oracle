@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="small-12 columns">
+        <p id="notice"><%= notice %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1><%= @conference.name %></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+            <th>Divisions</th>
+            <% @conference.divisions.each do |division| %>
+                <tr>
+                    <td><%= link_to division.name, division %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <%= link_to 'Edit', edit_conference_path(@conference) %> |
+        <%= link_to 'Back', conferences_path %>
+    </div>
+</div>

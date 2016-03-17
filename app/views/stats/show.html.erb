@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="small-12 columns">
+        <p id="notice"><%= notice %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1><%= @stat.name %></h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Home Compare Field</th>
+                    <th>Away Compare Field</th>
+                    <th>Win Prediction</th>
+                    <th>Line Prediction</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><%= @stat.name %></td>
+                    <td><%= @stat.home_compare_field %></td>
+                    <td><%= @stat.away_compare_field %></td>
+                    <td><%= ((@right_win_predictions / @total_predictions.to_f) * 100).to_i %>%</td>
+                    <td><%= ((@right_line_predictions / @total_predictions.to_f) * 100).to_i %>%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <%= link_to 'Calulate All', :controller => 'stats', :action => 'calculate_all', :id => @stat %> |
+        <%= link_to 'Edit', edit_stat_path(@stat) %> |
+        <%= link_to 'Back', stats_path %>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="small-12 columns">
+        <p id="notice"><%= notice %></p>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1><%= @division.name %></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+            <th>Teams</th>
+            <% @division.teams.each do |team| %>
+                <tr>
+                    <td><%= link_to team.name, team %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <%= link_to 'Edit', edit_division_path(@division) %> |
+        <%= link_to 'Back', divisions_path %>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stat_entry.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @stat_entry.year %>
+</p>
+
+<p>
+  <strong>Week:</strong>
+  <%= @stat_entry.week %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @stat_entry.value %>
+</p>
+
+<p>
+  <strong>Belongs to:</strong>
+  <%= @stat_entry.belongs_to %>
+</p>
+
+<%= link_to 'Edit', edit_stat_entry_path(@stat_entry) %> |
+<%= link_to 'Back', stat_entries_path %>

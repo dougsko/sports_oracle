@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @league.name %>
+</p>
+
+<p>
+<strong>Conferences:</strong>
+<table>
+    <th>Name</th>
+    <% @league.conferences.each do |conference| %>
+        <tr>
+            <td><%= link_to conference.name, conference %></td>
+        </tr>
+    <% end %>
+</table>
+</p>
+
+<%= link_to 'Edit', edit_league_path(@league) %> |
+<%= link_to 'Back', leagues_path %>

@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stat Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nfl player</th>
+      <th>Week</th>
+      <th>Year</th>
+      <th>Rush atts</th>
+      <th>Rush yards</th>
+      <th>Rush tds</th>
+      <th>Fumbles</th>
+      <th>Pass comp</th>
+      <th>Pass att</th>
+      <th>Pass yards</th>
+      <th>Pass tds</th>
+      <th>Ints</th>
+      <th>Qb rating</th>
+      <th>Receptions</th>
+      <th>Rec yards</th>
+      <th>Rec tds</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stat_lines.each do |stat_line| %>
+      <tr>
+        <% if stat_line.player %>
+            <td><%= stat_line.player.full_name %></td>
+        <% else %>
+            <td><%= stat_line.nfl_player_id %>
+        <% end %>
+        <td><%= stat_line.week %></td>
+        <td><%= stat_line.year %></td>
+        <td><%= stat_line.rush_atts %></td>
+        <td><%= stat_line.rush_yards %></td>
+        <td><%= stat_line.rush_tds %></td>
+        <td><%= stat_line.fumbles %></td>
+        <td><%= stat_line.pass_comp %></td>
+        <td><%= stat_line.pass_att %></td>
+        <td><%= stat_line.pass_yards %></td>
+        <td><%= stat_line.pass_tds %></td>
+        <td><%= stat_line.ints %></td>
+        <td><%= stat_line.qb_rating %></td>
+        <td><%= stat_line.receptions %></td>
+        <td><%= stat_line.rec_yards %></td>
+        <td><%= stat_line.rec_tds %></td>
+        <td><%= link_to 'Show', stat_line %></td>
+        <td><%= link_to 'Edit', edit_stat_line_path(stat_line) %></td>
+        <td><%= link_to 'Destroy', stat_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stat line', new_stat_line_path %>

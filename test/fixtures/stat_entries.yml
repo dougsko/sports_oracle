@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  year: 1
+  week: 1
+  value: 9.99
+  belongs_to: 
+
+two:
+  name: MyString
+  year: 1
+  week: 1
+  value: 9.99
+  belongs_to: 

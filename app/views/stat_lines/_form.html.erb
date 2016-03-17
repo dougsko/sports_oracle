@@ -1,0 +1,81 @@
+<%= form_for(@stat_line) do |f| %>
+  <% if @stat_line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stat_line.errors.count, "error") %> prohibited this stat_line from being saved:</h2>
+
+      <ul>
+      <% @stat_line.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nfl_player_id %><br>
+    <%= f.number_field :nfl_player_id %>
+  </div>
+  <div class="field">
+    <%= f.label :week %><br>
+    <%= f.number_field :week %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :rush_atts %><br>
+    <%= f.number_field :rush_atts %>
+  </div>
+  <div class="field">
+    <%= f.label :rush_yards %><br>
+    <%= f.number_field :rush_yards %>
+  </div>
+  <div class="field">
+    <%= f.label :rush_tds %><br>
+    <%= f.number_field :rush_tds %>
+  </div>
+  <div class="field">
+    <%= f.label :fumbles %><br>
+    <%= f.number_field :fumbles %>
+  </div>
+  <div class="field">
+    <%= f.label :pass_comp %><br>
+    <%= f.number_field :pass_comp %>
+  </div>
+  <div class="field">
+    <%= f.label :pass_att %><br>
+    <%= f.number_field :pass_att %>
+  </div>
+  <div class="field">
+    <%= f.label :pass_yards %><br>
+    <%= f.number_field :pass_yards %>
+  </div>
+  <div class="field">
+    <%= f.label :pass_tds %><br>
+    <%= f.number_field :pass_tds %>
+  </div>
+  <div class="field">
+    <%= f.label :ints %><br>
+    <%= f.number_field :ints %>
+  </div>
+  <div class="field">
+    <%= f.label :qb_rating %><br>
+    <%= f.text_field :qb_rating %>
+  </div>
+  <div class="field">
+    <%= f.label :receptions %><br>
+    <%= f.number_field :receptions %>
+  </div>
+  <div class="field">
+    <%= f.label :rec_yards %><br>
+    <%= f.number_field :rec_yards %>
+  </div>
+  <div class="field">
+    <%= f.label :rec_tds %><br>
+    <%= f.number_field :rec_tds %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

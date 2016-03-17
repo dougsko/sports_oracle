@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="small-12 columns">
+        <p id="notice"><%= notice %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1>Teams</h1>
+    </div>
+</div>
+
+<% @division_data = {} %>
+<% @divisions.each do |division| %>
+    <% @division_data[division.name.gsub(/\s/,'_')] = [] %>
+    <div class="row">
+        <div class="small-6 columns">
+            <table>
+                <caption><%= link_to division.name, division %></caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Short name</th>
+                        <th>City</th>
+                        <th>Glicko</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @teams.includes(:stat_entries).where(division: division).order("stat_entries.rating desc").each do |team| %>
+                        <% hash = {} %>
+                        <% hash['name'] = team.name %>
+                        <% hash['ratings'] = team.stat_entries.where(year: 2015).order(:week).map{ |x| x.rating.to_f } %>
+                        <% hash['rating_deviations'] = team.stat_entries.where(year: 2015).order(:week).map{ |x| x.rating_deviation.to_f } %>
+                        <% @division_data[division.name.gsub(/\s/,'_')] << hash %>
+                        <% if @good_bets[team.id] %>
+                            <tr style="background-color:<%= @good_bets[team.id] %>">
+                        <% else %>
+                            <tr>
+                        <% end %>
+                                <td><%= link_to team.name, team %></td>
+                                <td><%= team.short_name %></td>
+                                <td><%= team.city %></td>
+                                <td><%= team.stat_entries.order(:year).order(:week).last.rating.to_i %>
+                            </tr>
+                        <% end %>
+                </tbody>
+            </table>
+            <br>
+        </div>
+        <div class="small-6 columns">
+            <div id="<%= division.name.gsub(/\s/,'_') %>_chart" style="width: 480px; height: 400px;"></div>
+        </div>
+    </div>
+<% end %>
+
+<script>
+<% @division_data.keys.each do |division_name| %>
+    var data = [];
+    <% @division_data[division_name].each do |team| %>
+
+
+        var _<%= team['name'] %> = 
+{
+    x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    y: <%= team['ratings'] %>,
+    error_y: {
+        type: 'data',
+        array: <%= team['rating_deviations'] %>,
+        visible: true
+    },
+    type: 'scatter',
+    name: '<%= team['name'] %>',
+
+
+};
+
+data.push(_<%= team['name'] %>);
+<% end %>
+
+var layout = {
+    title: '<%= division_name %>'
+}
+
+Plotly.newPlot('<%= division_name.gsub(/\s/,'_')  + '_chart' %>', data, layout);
+<% end %>
+</script>

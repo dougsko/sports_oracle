@@ -1,0 +1,61 @@
+<%= form_for(@stat) do |f| %>
+    <% if @stat.errors.any? %>
+        <div class="row">
+            <div class="small-12 columns">
+                <div id="error_explanation">
+                    <h2><%= pluralize(@stat.errors.count, "error") %> prohibited this stat from being saved:</h2>
+
+                    <ul>
+                        <% @stat.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="field">
+                <%= f.label :name %><br>
+                <%= f.text_field :name %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="field">
+                <%= f.label :home_compare_field %>
+                <%= f.collection_select :home_compare_field, @compare_columns, :to_s, :to_s %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="field">
+                <%= f.label :away_compare_field %>
+                <%= f.collection_select :away_compare_field, @compare_columns, :to_s, :to_s %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="field">
+                <%= f.label :predictive_power %><br>
+                <%= f.text_field :predictive_power %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="actions">
+                <%= f.submit %>
+            </div>
+        </div>
+    </div>
+<% end %>

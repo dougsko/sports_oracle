@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  week: 1
+  year: 1
+  game_time: 2015-12-11 15:39:46
+  away_team: 
+  home_team: 
+  away_line: 9.99
+  home_line: 9.99
+  away_score: 1
+  home_score: 1
+  away_ats_result: MyString
+  home_ats_result: MyString
+
+two:
+  week: 1
+  year: 1
+  game_time: 2015-12-11 15:39:46
+  away_team: 
+  home_team: 
+  away_line: 9.99
+  home_line: 9.99
+  away_score: 1
+  home_score: 1
+  away_ats_result: MyString
+  home_ats_result: MyString

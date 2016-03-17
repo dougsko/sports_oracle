@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="small-12 columns">
+        <p id="notice"><%= notice %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1>Listing Stat Entries</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+            <thead>
+                <tr>
+                    <th>Stat</th>
+                    <th>Year</th>
+                    <th>Week</th>
+                    <th>Team</th>
+                    <th>Rating</th>
+                    <th>Rating Deviation</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @stat_entries.each do |stat_entry| %>
+                    <tr>
+                        <td><%= stat_entry.stat.name %></td>
+                        <td><%= stat_entry.year %></td>
+                        <td><%= stat_entry.week %></td>
+                        <td><%= link_to stat_entry.team.name, stat_entry.team %></td>
+                        <td><%= stat_entry.rating.to_i %></td>
+                        <td><%= stat_entry.rating_deviation.to_i %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <div class="small-12 columns">
+        <%= link_to 'New Stat entry', new_stat_entry_path %>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  first_name: MyString
+  last_name: MyString
+  full_name: MyString
+  position: MyString
+  number: 1
+  status: MyString
+  team: MyString
+  team_id: 1
+  nfl_player_id: 1
+
+two:
+  type: 
+  first_name: MyString
+  last_name: MyString
+  full_name: MyString
+  position: MyString
+  number: 1
+  status: MyString
+  team: MyString
+  team_id: 1
+  nfl_player_id: 1

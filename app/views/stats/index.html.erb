@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="small-12 columns">
+        <p id="notice"><%= notice %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1>Listing Stats</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="small-12 columns">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Home Compare Field</th>
+                    <th>Away Compare Field</th>
+                    <th>Predictive power</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @stats.each do |stat| %>
+                    <tr>
+                        <td><%= stat.name %></td>
+                        <td><%= stat.home_compare_field %></td>
+                        <td><%= stat.away_compare_field %></td>
+                        <td><%= stat.predictive_power %></td>
+                        <td><%= link_to 'Show', stat %></td>
+                        <td><%= link_to 'Edit', edit_stat_path(stat) %></td>
+                        <td><%= link_to 'Destroy', stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="small-12 columns">
+        <%= link_to 'New Stat', new_stat_path %>
+    </div>
+</div>

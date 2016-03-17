@@ -1,0 +1,1 @@
+json.extract! @stat_line, :id, :nfl_player_id, :week, :year, :rush_atts, :rush_yards, :rush_tds, :fumbles, :pass_comp, :pass_att, :pass_yards, :pass_tds, :ints, :qb_rating, :receptions, :rec_yards, :rec_tds, :created_at, :updated_at
