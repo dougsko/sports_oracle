@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218153557) do
+ActiveRecord::Schema.define(version: 20160318164655) do
 
   create_table "conferences", force: :cascade do |t|
     t.string   "name"
@@ -47,10 +47,20 @@ ActiveRecord::Schema.define(version: 20151218153557) do
     t.integer  "home_score"
     t.string   "away_ats_result"
     t.string   "home_ats_result"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.decimal  "over_under"
     t.string   "over_under_result"
+    t.integer  "home_rush_yards"
+    t.integer  "away_rush_yards"
+    t.integer  "home_pass_yards"
+    t.integer  "away_pass_yards"
+    t.decimal  "home_qb_rating"
+    t.decimal  "away_qb_rating"
+    t.integer  "home_receptions"
+    t.integer  "away_receptions"
+    t.integer  "home_interceptions"
+    t.integer  "away_interceptions"
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -119,6 +129,8 @@ ActiveRecord::Schema.define(version: 20151218153557) do
     t.datetime "updated_at",         null: false
     t.string   "home_compare_field"
     t.string   "away_compare_field"
+    t.integer  "win_prediction"
+    t.integer  "line_prediction"
   end
 
   create_table "teams", force: :cascade do |t|

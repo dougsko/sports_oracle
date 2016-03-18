@@ -29,7 +29,7 @@
     <% @stat_lines.each do |stat_line| %>
       <tr>
         <% if stat_line.player %>
-            <td><%= stat_line.player.full_name %></td>
+            <td><%=link_to stat_line.player.full_name, stat_line.player %></td>
         <% else %>
             <td><%= stat_line.nfl_player_id %>
         <% end %>
@@ -58,4 +58,4 @@
 
 <br>
 
-<%= link_to 'New Stat line', new_stat_line_path %>
+<%= paginate @stat_lines %>

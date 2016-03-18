@@ -4,7 +4,7 @@ class StatLinesController < ApplicationController
     # GET /stat_lines
     # GET /stat_lines.json
     def index
-        @stat_lines = StatLine.all
+        @stat_lines = StatLine.order(:year).order(:week).page(params[:page])
     end
 
     # GET /stat_lines/1

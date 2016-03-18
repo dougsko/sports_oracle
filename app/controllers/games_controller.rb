@@ -1,11 +1,20 @@
+# to add a new stat to games
+#
+# Game.all.each do |g|
+#     g.home_rush_yards = g.stat_lines.where(team_id: Team.where(short_name: g.home_team).first.id).sum(:rush_yards)
+#     g.away_rush_yards = g.stat_lines.where(team_id: Team.where(short_name: g.away_team).first.id).sum(:rush_yards)
+#     g.save
+# end
+#
+#
 class GamesController < ApplicationController
-    #before_action :set_game, only: [:show, :edit, :update, :destroy]
+    before_action :set_game, only: [:show, :edit, :update, :destroy]
 
     # GET /games
     # GET /games.json
     def index
         @teams = Team.all
-        @games = Game.all
+        @games = Game.order(:year).order(:week).page(params[:page])
     end
 
     # GET /games/1

@@ -29,8 +29,8 @@
                     <td><%= @stat.name %></td>
                     <td><%= @stat.home_compare_field %></td>
                     <td><%= @stat.away_compare_field %></td>
-                    <td><%= ((@right_win_predictions / @total_predictions.to_f) * 100).to_i %>%</td>
-                    <td><%= ((@right_line_predictions / @total_predictions.to_f) * 100).to_i %>%</td>
+                    <td><%= @stat.win_prediction %>%</td>
+                    <td><%= @stat.line_prediction %>%</td>
                 </tr>
             </tbody>
         </table>

@@ -4,7 +4,7 @@ class StatEntriesController < ApplicationController
     # GET /stat_entries
     # GET /stat_entries.json
     def index
-        @stat_entries = StatEntry.all.order(:year, :week)
+        @stat_entries = StatEntry.all.order(:year, :week).page(params[:page])
     end
 
     # GET /stat_entries/1

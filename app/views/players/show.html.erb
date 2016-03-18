@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @player.type %>
-</p>
-
-<p>
   <strong>First name:</strong>
   <%= @player.first_name %>
 </p>
@@ -37,17 +32,7 @@
 
 <p>
   <strong>Team:</strong>
-  <%= @player.team %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <%= @player.team_id %>
-</p>
-
-<p>
-  <strong>Nfl player:</strong>
-  <%= @player.nfl_player_id %>
+  <%= link_to @player.team.name, @player.team%>
 </p>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |

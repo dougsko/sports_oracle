@@ -109,6 +109,9 @@ class StatsController < ApplicationController
                 end
             end
         end
+        @stat.win_prediction = ((@right_win_predictions / @total_predictions.to_f) * 100).to_i if @total_predictions
+        @stat.line_prediction = ((@right_line_predictions / @total_predictions.to_f) * 100).to_i if @total_predictions
+        @stat.save
     end
 
     # GET /stats/1/export
@@ -200,7 +203,7 @@ class StatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stat_params
-        params.require(:stat).permit(:name, :predictive_power, :compare_field_a, :compare_field_b)
+        params.require(:stat).permit(:name, :predictive_power, :compare_field_a, :compare_field_b, :home_compare_field, :away_compare_field)
     end
 
 end
