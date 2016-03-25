@@ -42,7 +42,8 @@ class TeamsController < ApplicationController
     # GET /teams/1.json
     def show
         @stats = Stat.all
-        @games = Game.where('home_team = ? OR away_team = ?', @team.short_name, @team.short_name).order(year: :asc, week: :asc)
+        #@games = Game.where('home_team = ? OR away_team = ?', @team.short_name, @team.short_name).order(year: :asc, week: :asc)
+        @games = Game.where('home_team = ? OR away_team = ?', @team.short_name, @team.short_name).order(:year).order(:week).page(params[:page])
         @stat_entries = {} 
         @good_bets = {}
         @stats.each do |stat|

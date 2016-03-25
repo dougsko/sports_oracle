@@ -75,7 +75,7 @@
 
 <div class="row">
     <div class="small-12 columns">
-        <%= link_to 'Edit', edit_team_path(@team) %> |
+        <%= paginate @games %>
         <%= link_to 'Back', teams_path %>
     </div>
 </div>
